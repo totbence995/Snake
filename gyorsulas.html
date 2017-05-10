@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<style>
+#ball{
+
+    background-color:pink;
+
+
+}
+.playground{
+
+background-color:green;
+
+}
+
+ </style>   
+
+</head>
+<body>
+    <div class="playground"style="height:700px;width:700px;border:1px solid black;position:relative;padding:0px;">
+        <div id="ball" style="height:50px;width:50px;border:1px solid black;border-radius:25px;position:absolute;top:10px;left:10px;"></div>
+    </div>
+<script type="text/javascript">
+
+var ball=document.querySelector("#ball");
+var ballTop=10;
+var gyors=1000;
+var pozicioValtozas=0;
+var ballHeight=50;
+var tableHeight=700;
+var topPosition=10;
+function moveIt(){
+
+if(ballTop+ballHeight<=tableHeight){
+//gyors-=50;    
+ball.style.top=ballTop+'px';
+pozicioValtozas+=0.25;
+ballTop+=pozicioValtozas;
+console.log(ball.style.top);
+
+if(ball.style.top<650 && ball.style.top>400)
+    {
+        console.log(ball.style.top);
+        
+        ball.style.top=ballTop+'px';
+        pozicioValtozas-=0.25;
+       ballTop-=pozicioValtozas;
+    }
+    else if(ball.style.top==500)
+    {
+        clearInterval(x);
+    }
+
+
+  /*  }
+    else if(ball.style.top==647)
+    {
+        console.log(ball.style.top);
+        
+        ball.style.top=ballTop+'px';
+        pozicioValtozas+=0.25;
+       ballTop-=pozicioValtozas;
+    }*/
+    
+        //clearInterval(y);
+    }
+}
+
+/*function gyorsitas(){
+
+pozicioValtozas+=0.25;
+ballTop+=pozicioValtozas;
+
+console.log(ballTop);
+}*/
+
+function bounce()
+{
+
+if(ballTop+ballHeight<=tableHeight){
+//gyors-=50;    
+ball.style.top=ballTop+'px';
+pozicioValtozas-=0.25;
+ballTop-=pozicioValtozas;
+console.log(ball.style.top);
+}
+
+}
+
+var x=setInterval(moveIt,10);
+//var y=setInterval(gyorsitas,12);
+
+</script>
+</body>
+</html>
